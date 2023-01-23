@@ -26,6 +26,9 @@
 //* innerHtml:
 //to put html (innerHtml) we use a directive called v-html='<p>welcome</p>'
 
+//* $refs
+//when we change somthing using them, they ar not reactive
+
 //* v-modal modifiers:
 // .number it will make the data to be a number, if it a string or whatever it will automatically convert to number.(good for input as input always gives string)
 // .trim remove white spaces

@@ -52,7 +52,7 @@ https://firebase.google.com/docs/firestore/query-data/listen */
 /* 
 db. collection(set and add)
 https://firebase.google.com/docs/firestore/manage-data/add-data
-
+add will make firebase add random id for the doc, while set allow us to add the id we want
 db.collection('chats').add({ users: [user.email, wantedEmail] });
 or
    db.collection('users').doc(user.uid).set(

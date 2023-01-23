@@ -120,3 +120,42 @@ kaman el ssr feh 7aga zyada 3n el ssg: w hwa eno bydene access 3ala el request o
 // 4) routing system
 
 //frontend master https://production-grade-nextjs.vercel.app/lesson/06-preview-content
+
+// ⁡⁣⁢⁢​‌‍‌𝗻͟𝗲͟𝘅͟𝘁͟𝟭͟𝟯 𝗻͟𝗼͟𝘁͟𝗲͟𝘀⁡
+
+//frontend master https://intro-nextjs-v2-instructions.vercel.app/
+
+//⁡⁢⁢⁢notes⁡
+// ⁢if client component will be render in a server component, server components in general cant pass on non-serializable props to client component(like functions and components and just functions and also date object, only like htm,css,json)
+
+//⁡⁢⁢⁢layout⁡
+// el Layouts moomkn tkon nested, bs n5le balna enha msh byt3mlha rerender lma 23ml navigation 2w ma shabah ,3shan next 3aml optimization w byshof enha sabta ka layout, fa leh y3mlha rerender, bs lw 3ayz 23ml dyman ll layout rerender e 7aga esmha template bdel l layout, zy el layout bzbt bs bt3ml rerender dyman. wel template deh moomkn 2st3mlha msln lw de data dyman gdeda 3yz 23mlha fetch w m7tag rerender 2w lw 3nde transtions fl layout fas3tha 3shan t7sl el transtions lazm y7sl rerender.
+
+//kman moomkn 2fdl layout l kol mgmo3a mn el routes bl syntax dah=> {admin}/home
+
+//⁡⁢⁢⁢ssr vs server components⁡
+//na5od balna en el server component mo5tlf 3n el ssr, la2n el server component bysht8l bs 3al ael server w bykon stream msh bytb3t mara w7da, w dah mbny 3ala rl rfc bta3 react 2sln gahz, enma el ssr dah ele 3rfeno 3ady wele by3ml hydrationw el kalam dah w dah moomkn y7sl bs ll client components.
+
+//⁡⁢⁢⁢navigation link⁡
+/* A route transition is initiated using or calling router.push().
+The router updates the URL in the browser’s address bar.
+The router avoids unnecessary work by re-using segments that haven't changed (e.g. shared layouts) from the client-side cache. This is also referred to as partial rendering.
+If the conditions of soft navigation are met, the router fetches the new segment from the cache rather than the server. If not, the router performs a hard navigation and fetches the Server Component payload from the server.
+If created, loading UI is shown from the server while the payload is being fetched.
+The router uses the cached or fresh payload to render the new segments on the client. */
+
+//⁡⁢⁢⁢loading ⁡⁢⁢⁢and error⁡
+// el loading file bykon loading ll pages w kda, enma lw 3ayz 23m loading state l component mo3yn w hwa byt3mlo render 3ala el server, moomkn 23mlo wrap b suspense w27tlo fallback. and same for error page and Errorboundery component
+
+//frontend master https://fullstack-v2-instructions.vercel.app/
+
+// - el middlewares btsht8l fel edge runtime, w dah ele hwa y3ny fel cdn nodes, bs na5od balna en dah runtime mo5tlf shiwa 3n el node el 3ady, b7es en fe restrictions shwia w hwa en 28lb el code myb2ash dynamic bl ykon static. w lazm 3shan mwdo3 el edge dah ysht8l, nkon raf3en el project 3ala 7aga btd3m kda 2sln w 7alyan el emwgodeen vercel w netlify.(el cdn 2sln fl 3ady el tabe3e eno byd3m bs ene 27ot 3leh 7agat static zy el HTML images wl kalam dah enma mynf3sh 23ml 3leh execution l code node w dah el gded fe fekrt el edge functions)
+
+// - fl server components lw 3aml await ll data el sf7a msh httb3t 8er lma el data tege, 3shan msh ht3ml return 2sln 3shan 3aml await getdata(), bs moomkn m3mlsh await w s3tha tro7 3mla return 3ltol w ttb3t wl data lsa mgtsh , w aro7 ana 3aml spinner ( moomkn 2shoof el 7eta deh 2fdl fl course 2alha 2zay blzabt fullstack-app-next day2 part3)
+
+// - lw 3ayz 2st5dm suspense 3shan tzhrly loading state l7ad ma el data bta3t el component tege well component b3dha ytb3t w yege ll client side, lazm 25od baly en dah 3shan y7sl lazm 2kon b3ml fetch ll data bta3t le component gwa el component nfso, msh fl parent bta3oh msln, w dah 3shan suspense y2dr yrbot el component bl data bta3to.
+// good indication where to get the data parent or component it self,⇒ lw 3nde 2ktr mn component fl parent w b3ml map 3lehom s3tha m7tag 2geb el data deh fl parent 3shan 23rf 23ml map, enma lw component wa7d self contained w gwah data s3tha 2geb el data gwa el component nfso 3shan 23rf 23ml suspense bshola.
+
+// - mn dmn el 7agat ele 7elwa fl server components enk moomkn t3m call ll database 3ltol w tgeb el data direct mnha, bdl mt3ml call ll API w b3d kda el API  deh tro7 eya tklm el database w t3od tshof lw fe moshka fl network well call ll API 5ad wa2t 2d eh el kalam dah. mn el 25r kda enta wfrt layer kamla wbltaly el wa2t b2aa 2sr3.
+
+// - if we have data on a page, where this data needs to be updated on client side , then we have to make that data get fetched client side (to have the ability to mutate using state and setstat, or to refresh the page which also need the component to be cliet side). until now we can get around this to avoid client component by using something like on demand revalidation([https://beta.nextjs.org/docs/data-fetching/revalidating#using-on-demand-revalidation](https://beta.nextjs.org/docs/data-fetching/revalidating#using-on-demand-revalidation))
